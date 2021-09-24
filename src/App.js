@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, {useState} from 'react';
+import Button from './Components/Button';
+import ListItem from './Components/ListItem';
+import List from './Components/List';
+
+
 
 function App() {
+  const [dark, setDark] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <List>
+      <ListItem key={0} dark={dark}>First</ListItem>
+      <ListItem key={1} dark={dark}>Second</ListItem>
+      <ListItem dark={dark} key={2}>Third</ListItem>
+    </List>
+    <Button onClick={() => setDark(!dark)}>Change theme</Button>
     </div>
-  );
+
+  )
 }
 
 export default App;
